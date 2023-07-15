@@ -43,7 +43,7 @@ The following steps are followed in CNN Model Design
 
 ## Conclusions
 > Distribution of skin cancer classes in the dataset:
- [dataset plot](https://github.com/KuntamukkalaPavanKumar/melanoma_detection_assignment/blob/master/pics/before%20aug.png)
+ ![datasetplot](https://github.com/KuntamukkalaPavanKumar/melanoma_detection_assignment/blob/master/pics/before%20aug.png)
 - From the above picture we can see that following classes constitute major part of the dataset and are dominant:
 * Pigmented Beningn Keratosis (20.6%)
 * Melanoma (19.8%)
@@ -54,21 +54,21 @@ The following steps are followed in CNN Model Design
 * Actinic Keratosis (5.0%)
 - This class imbalance would result in a model that is biased towards the skin cancer classes which are major in number. Thus we have to rectify the class imbalance using Augmentor Pipeline.
 > Training and Validation Accuracy on first model:
-[training plot](https://github.com/KuntamukkalaPavanKumar/melanoma_detection_assignment/blob/master/pics/initial.png)
+![trainingplot](https://github.com/KuntamukkalaPavanKumar/melanoma_detection_assignment/blob/master/pics/initial.png)
 - From the above plot, we can see that there is significant difference between training accuracy (Apprx 93%) and validation accuracy (Apprx 53%) of the last epoch.
 - This suggest that there is an overfitting in the model.
 - This overfitting can be resolved by using dropout function, adding more training images (i.e., by augmentor pipeline), increasing diversity of images by augmentation (i.e., by random roation, flipping, zooming)
 > Increasing diversity of data by Augmentation (i.e., by random rotation, flipping and zooming)
-[after rotation](https://github.com/KuntamukkalaPavanKumar/melanoma_detection_assignment/blob/master/pics/after%20rot.png)
+![afterrotation](https://github.com/KuntamukkalaPavanKumar/melanoma_detection_assignment/blob/master/pics/after%20rot.png)
 - From the above figure, we can see the overfitting problem has been greatly reduced after providing diverse pictures through augmentation and adding a drop out layer at the last hidden layer.
 - The training accuracy (apprx 56%) and validation accuracy (apprx 50%) of the last epoch shows that there is no overfitting. But there is still room for improvement.
 > Augmentor Pipeline:
-[after augmentation](https://github.com/KuntamukkalaPavanKumar/melanoma_detection_assignment/blob/master/pics/after%20aug.png)
+![afteraugmentation](https://github.com/KuntamukkalaPavanKumar/melanoma_detection_assignment/blob/master/pics/after%20aug.png)
 - To rectify the class imbalance, we use 'Augmentor Pipeline'.
 - This would add images to the respective skin cancer category, thus making training data more in number.
 - From the above percentage plot, we can see that the skin cancer classes which are under represented in previous were increased to 9% approximately.
 > Final Model:
-[final plot](https://github.com/KuntamukkalaPavanKumar/melanoma_detection_assignment/blob/master/pics/30%20epochs.png)
+![finalplot](https://github.com/KuntamukkalaPavanKumar/melanoma_detection_assignment/blob/master/pics/30%20epochs.png)
 - After running model for 30 epochs on augmented data, we can see that training accuracy (74 %) and validation accuracy (approximately 70 %) has increased.
 - Due to computational constraint, this project is not able to try adding more hidden layers and adding dropouts to improve the accuracy.
 - It is observed for this dataset that, Batch Nomralisation is resulting in greater fluctuation of validation accuracies during different epoch runs.
